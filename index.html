@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <title>OPTD Web App Prototype</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="topbar">
+    <div class="stat">💰 <span id="money">0</span></div>
+    <div class="stat">❤️ <span id="lives">0</span></div>
+    <div class="stat">🌊 Wave <span id="wave">0</span>/<span id="waveTotal">0</span></div>
+    <button id="pauseBtn" class="small">⏸︎</button>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <div id="bottombar">
+    <div class="col">
+      <div class="label">放置</div>
+      <div class="row">
+        <button id="selLuffy" class="btn">魯夫<br><small>$80</small></button>
+        <button id="selUsopp" class="btn">騙人布<br><small>$90</small></button>
+        <button id="selNone" class="btn secondary">取消</button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">控制</div>
+      <div class="row">
+        <button id="startBtn" class="btn primary">開始/下一波</button>
+        <button id="skillBtn" class="btn">塔技能</button>
+        <button id="upgradeBtn" class="btn">升級</button>
+        <button id="sellBtn" class="btn danger">出售</button>
+      </div>
+      <div class="hint" id="hint">點地面放塔；點塔開啟操作；拖曳可移動畫面（雙指縮放暫未做）。</div>
+    </div>
+  </div>
+
+  <div id="overlay" class="hidden">
+    <div class="card">
+      <h2 id="resultTitle">WIN</h2>
+      <p id="resultText"></p>
+      <button id="restartBtn" class="btn primary" style="width:100%;">重新開始</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>

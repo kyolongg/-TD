@@ -1,0 +1,9 @@
+{
+  "name": "OPTD Web App Prototype",
+  "short_name": "OPTD",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "icons": []
+}
